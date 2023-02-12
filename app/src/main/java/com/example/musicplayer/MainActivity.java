@@ -64,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void getAllAudioFiles(){
-
+    public void getAllAudioFiles() {
         if(MEDIA_PATH!=null) {
             File mainFile = new File(MEDIA_PATH);
             File[] fileList = mainFile.listFiles();
@@ -76,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 //we don't know the folder with the audio file with so we use>>>>>>>>>>>>
                 if (file.isDirectory()) {
                     scanDirectory(file);
-                } else {
+                }
+                else {
                     String path = file.getAbsolutePath();
                     if (path.endsWith(".mp3")) {
                         songList.add(path);
@@ -86,9 +86,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+            adapter =new MusicAdapter(songList, MainActivity.this);
+            recyclerView.setAdapter(adapter);
     }
-        adapter =new MusicAdapter(songList, MainActivity.this);
-        recyclerView.setAdapter(adapter);
+
 }
 
     public  void scanDirectory(File directory){
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     String path = file.getAbsolutePath();
                     if (path.endsWith(".mp3")) {
                         songList.add(path);
-                        adapter.notifyDataSetChanged();
+
                     }
 
                 }

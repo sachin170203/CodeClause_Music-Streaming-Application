@@ -40,23 +40,21 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         all the file path to the file path variable  */
         String filePath=list.get(position);
         Log.e("filepath",filePath);
-//        String title=filePath.substring(filePath.lastIndexOf("/")+1);
-//        // writing the audio file name in textView component
-//        holder.textViewFileName.setText(title);
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent =new Intent(mContext,MusicAdapter.class);
-//                intent.putExtra( "title",title);
-//                intent.putExtra("filepath",filePath);
-//                intent.putExtra("position",position);
-//                intent.putExtra("list",list);
-//
-//                mContext.startActivity(intent);
-//            }
-//        });
+        String title=filePath.substring(filePath.lastIndexOf("/")+1);
+        // writing the audio file name in textView component
+        holder.textViewFileName.setText(title);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(mContext,MusicAdapter.class);
+                intent.putExtra( "title",title);
+                intent.putExtra("filepath",filePath);
+                intent.putExtra("position",position);
+                intent.putExtra("list",list);
 
-
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
